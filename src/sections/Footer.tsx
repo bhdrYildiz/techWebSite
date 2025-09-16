@@ -21,7 +21,7 @@ export const Footer = () => {
           <a href="#">Help</a>
           <a href="#">Careers</a>
         </nav>
-        <div className="flex justify-center gap-6 mt-6">
+        <div className="flex justify-center gap-6 mt-6 cursor-pointer">
           <SocialX />
           <SocialInsta />
           <SocialLinkedIn />
@@ -29,7 +29,7 @@ export const Footer = () => {
           <SocialYoutube />
         </div>
         <p className="mt-6">
-          &copy; 2024 Your Company, Inc. All rights reserved.
+          &copy; 2025 OsianaTech, Tüm Hakları Saklıdır.
         </p>
       </div>
     </footer>

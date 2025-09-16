@@ -21,10 +21,11 @@ export const CallToAction = () => {
     >
       <div className="container">
         <div className="section-heading relative">
-          <h2 className="section-title">Sign up for free today</h2>
+          <h2 className="section-title">İşletmenizi Hemen Dijitale Taşıyın</h2>
           <p className="section-description mt-5">
-            Celebrate the joy of accomplishment with an app designed to track
-            your progress and motivate your efforts.
+            OsianaTech ile web, mobil ve dijital pazarlama çözümlerini tek bir
+            platformda keşfedin. Markanızı dijital dünyada güçlü bir şekilde
+            öne çıkarın.
           </p>
           <motion.img
             src={starImage.src}
@@ -46,9 +47,9 @@ export const CallToAction = () => {
           />
         </div>
         <div className="flex gap-2 mt-10 justify-center">
-          <button className="btn btn-primary">Get for free</button>
+          <button className="btn btn-primary">İletişime Geç!</button>
           <button className="btn btn-text gap-1">
-            <span>Learn more</span>
+            <span>Hizmetlerimizi Gör</span>
             <ArrowRight className="h-5 w-5" />
           </button>
         </div>

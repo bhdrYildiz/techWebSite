@@ -3,12 +3,10 @@ import ArrowIcon from "@/assets/arrow-right.svg";
 import cogImage from "@/assets/cog.png";
 import cylinderImage from "@/assets/cylinder.png";
 import noodleImage from "@/assets/noodle.png";
-import Image from "next/image";
 import {
   motion,
   useScroll,
   useTransform,
-  useMotionValueEvent,
 } from "framer-motion";
 import { useRef } from "react";
 
@@ -28,19 +26,19 @@ export const Hero = () => {
       <div className="container">
         <div className="md:flex items-center">
           <div className="md:w-[478px]">
-            <div className="tag">Version 2.0 is here</div>
+            <div className="tag">Yeni Nesil Web & Mobil Çözümler</div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
-              Pathway to productivity
+              Dijital Başarıya Giden Yol
             </h1>
             <p className="text-xl text-[#010D3E] tracking-tight mt-6">
-              Celebrate the joy of accomplishment with an app designed to track
-              your progress, motivate your efforts, and celebrate your
-              successes.
+              OsianaTech ile markanızı güçlendirin. Modern web tasarım, SEO, SaaS
+              ve danışmanlık hizmetlerimizle işletmenizin dijital dünyada öne
+              çıkmasını sağlayın.
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">Get for free</button>
+              <button className="btn btn-primary">Hemen Başla</button>
               <button className="btn btn-text gap-1">
-                <span>Learn more</span>
+                <span>Hizmetlerimizi İncele</span>
                 <ArrowIcon className="h-5 w-5" />
               </button>
             </div>
