@@ -3,69 +3,70 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaLightbulb, FaHandshake, FaStar } from "react-icons/fa";
+import cylinderImage from "@/assets/cylinder.png";
+import noodleImage from "@/assets/noodle.png";
 
 export default function HakkimizdaPage() {
     return (
-        <main className="relative">
-            {/* HERO */}
-            <section className="relative bg-gradient-to-br from-indigo-50 via-white to-pink-50 py-32 text-center overflow-hidden">
-                <div className="container mx-auto relative z-10">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-5xl font-bold tracking-tight mb-6 text-gray-900"
-                    >
-                        Hakkımızda
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
-                        className="text-lg text-gray-600 max-w-2xl mx-auto"
-                    >
-                        OsianaTech olarak dijital dünyada markaların büyümesini sağlamak için
-                        modern, estetik ve kullanıcı dostu çözümler geliştiriyoruz.
-                    </motion.p>
-                </div>
-
-                {/* Decorative Illustration */}
+        <main>
+            {/* Banner */}
+            <section className="relative h-[400px] flex items-center justify-center text-center overflow-hidden bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)]">
+                {/* Sol ve Sağ Hareketli Görseller */}
+                <motion.img
+                    src={cylinderImage.src}
+                    alt="Cog image"
+                    className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0"
+                    animate={{ translateY: [-20, 30] }}
+                    transition={{ repeat: Infinity, repeatType: "mirror", duration: 3, ease: "easeInOut" }}
+                />
+                <motion.img
+                    src={noodleImage.src}
+                    alt="Cog image"
+                    className="md:absolute md:h-full md:w-auto md:max-w-none md:-right-6 lg:right-0"
+                    animate={{ translateY: [-30, 30] }}
+                    transition={{ repeat: Infinity, repeatType: "mirror", duration: 3, ease: "easeInOut" }}
+                />
+                {/* Banner İçerik */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 0.15, scale: 1 }}
-                    transition={{ duration: 1 }}
-                    className="absolute right-0 top-10 w-[300px] opacity-20"
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="relative z-10 text-white px-4"
                 >
-                    <Image src="/social.svg" alt="About illustration" width={300} height={300} />
+                    <h1 className="text-5xl md:text-5xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mb-12">
+                        HAKKIMIZDA
+                    </h1>
+                    <p className="text-xl text-[#010D3E] tracking-tight mt-6 max-w-2xl mx-auto">
+                        OsianaTech ile markanızı güçlendirin. Modern web tasarım, SEO, SaaS ve danışmanlık hizmetlerimizle işletmenizin dijital dünyada öne çıkmasını sağlayın.
+                    </p>
                 </motion.div>
             </section>
-
             {/* MİSYON & VİZYON */}
-            <section className="py-24 container grid md:grid-cols-2 gap-12 items-center">
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="text-3xl font-semibold mb-4 text-gray-900">Misyonumuz</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        İşletmelerin dijital dönüşüm süreçlerinde yanlarında olarak,
-                        kullanıcı odaklı ve yenilikçi çözümler sunmak. Teknolojiyi insanlarla
-                        buluşturmak ve her ölçekte işin dijitalde güçlü olmasını sağlamak.
-                    </p>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="text-3xl font-semibold mb-4 text-gray-900">Vizyonumuz</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        Dijital dünyada güvenilir, yaratıcı ve sürdürülebilir çözümler
-                        üreterek bölgesel ve küresel ölçekte tercih edilen teknoloji
-                        partneri olmak.
-                    </p>
-                </motion.div>
+            {/* MİSYON & VİZYON */}
+            <section className="py-24 container grid md:grid-cols-2 gap-12 items-stretch">
+                {[
+                    {
+                        title: "Misyonumuz",
+                        desc: "İşletmelerin dijital dönüşüm süreçlerinde yanlarında olarak, kullanıcı odaklı ve yenilikçi çözümler sunmak. Teknolojiyi insanlarla buluşturmak ve her ölçekte işin dijitalde güçlü olmasını sağlamak. Ayrıca müşterilerimizin ihtiyaçlarını analiz ederek, sürdürülebilir ve etkili çözümler geliştirmeyi hedefliyoruz.",
+                    },
+                    {
+                        title: "Vizyonumuz",
+                        desc: "Dijital dünyada güvenilir, yaratıcı ve sürdürülebilir çözümler üreterek bölgesel ve küresel ölçekte tercih edilen teknoloji partneri olmak. Hedefimiz, işletmelerin dijitalde güçlü bir şekilde yer almasını sağlamak ve uzun vadeli değer yaratmak.Yeni teknolojileri sürekli takip ederek güncel kalmayı planlıyoruz.",
+                    },
+                ].map((item, idx) => (
+                    <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: idx * 0.2 }}
+                        className="relative p-10 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2 flex flex-col justify-between"
+                    >
+                        {/* Subtle background shape */}
+                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-100 rounded-full opacity-20 pointer-events-none"></div>
+                        <h2 className="text-3xl font-semibold mb-4 text-gray-900">{item.title}</h2>
+                        <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+                    </motion.div>
+                ))}
             </section>
 
             {/* DEĞERLERİMİZ */}
@@ -75,37 +76,33 @@ export default function HakkimizdaPage() {
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                icon: <FaLightbulb className="text-yellow-500 text-4xl mb-4" />,
+                                icon: <FaLightbulb className="text-[#001E80] text-4xl mb-4" />,
                                 title: "Yenilikçilik",
                                 desc: "Her zaman en güncel teknolojilerle fark yaratıyoruz.",
                             },
                             {
-                                icon: <FaHandshake className="text-green-500 text-4xl mb-4" />,
+                                icon: <FaHandshake className="text-blue-900 text-4xl mb-4" />,
                                 title: "Şeffaflık",
                                 desc: "Müşterilerimizle güvene dayalı açık iletişim kuruyoruz.",
                             },
                             {
-                                icon: <FaStar className="text-indigo-500 text-4xl mb-4" />,
+                                icon: <FaStar className="text-indigo-800 text-4xl mb-4" />,
                                 title: "Kalite",
                                 desc: "Her detayda yüksek standartı ön planda tutuyoruz.",
                             },
                         ].map((val, idx) => (
-                            <motion.div
-                                key={idx}
-                                whileHover={{ scale: 1.05, y: -5 }}
-                                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition"
-                            >
-                                {val.icon}
-                                <h3 className="text-xl font-semibold mb-3 text-gray-900">{val.title}</h3>
+                            <div key={idx} className="p-6 bg-white rounded-xl shadow text-center">
+                                <div className="flex justify-center mb-4">{val.icon}</div>
+                                <h3 className="text-xl font-semibold mb-2">{val.title}</h3>
                                 <p className="text-gray-600">{val.desc}</p>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-20 text-center bg-gradient-to-r from-pink-100 via-white to-indigo-100">
+            <section className="py-20 text-center tracking-tighter bg-gradient-to-b from-black to-[#001E80] bg-clip-text text-transparent">
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
