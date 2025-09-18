@@ -1,5 +1,10 @@
+import createMDX from "@next/mdx";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // MDX dosyalarını da sayfa olarak tanıyabilmesi için
+  pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
+
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -27,8 +32,11 @@ const nextConfig = {
 
     return config;
   },
-
-  // ...other config
 };
 
-export default nextConfig;
+// 🔑 Burada MDX wrapper’ı çağırıyoruz
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+});
+
+export default withMDX(nextConfig);

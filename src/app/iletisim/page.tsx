@@ -91,9 +91,9 @@ export default function IletisimPage() {
                     style={{ translateY, rotate }}
                 />
                 <motion.img
-                    src="/backend.svg"
+                    src="/google_docs.svg"
                     alt="Wave"
-                    className="hidden md:block absolute bottom-4 right-0 w-52 opacity-70"
+                    className="hidden md:block absolute bottom-4 -right-12 w-52 opacity-70"
                     style={{ translateY }}
                 />
 
