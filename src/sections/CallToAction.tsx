@@ -5,6 +5,7 @@ import springImage from "@/assets/spring.png";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 export const CallToAction = () => {
   const sectionRef = useRef(null);
@@ -47,11 +48,20 @@ export const CallToAction = () => {
           />
         </div>
         <div className="flex gap-2 mt-10 justify-center">
-          <button className="btn btn-primary">İletişime Geç!</button>
-          <button className="btn btn-text gap-1">
-            <span>Hizmetlerimizi Gör</span>
-            <ArrowRight className="h-5 w-5" />
-          </button>
+          <Link href="/iletisim" className="flex items-center">
+            <button
+              className="bg-black text-white px-4 py-2 rounded-lg font-medium text-sm inline-flex items-center justify-center tracking-tight
+             transition-all duration-300 hover:bg-gray-800 hover:scale-105"
+            >
+              İletişime Geç!
+            </button>
+          </Link>
+          <Link href="/hizmetler" className="flex items-center">
+            <button className="btn btn-text gap-1">
+              <span>Hizmetlerimizi Gör</span>
+              <ArrowRight className="h-5 w-5" />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaLightbulb, FaHandshake, FaStar } from "react-icons/fa";
 import cylinderImage from "@/assets/cylinder.png";
 import noodleImage from "@/assets/noodle.png";
+import Link from "next/link";
 
 export default function HakkimizdaPage() {
     return (
@@ -111,12 +112,14 @@ export default function HakkimizdaPage() {
                 >
                     Dijital dönüşüm yolculuğuna bizimle çıkın
                 </motion.h2>
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/80 transition"
-                >
-                    İletişime Geçin
-                </motion.button>
+                <Link href="/iletisim">
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/80 transition"
+                    >
+                        İletişime Geçin
+                    </motion.button>
+                </Link>
             </section>
         </main>
     );

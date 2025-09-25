@@ -15,6 +15,7 @@ import {
 import { useRef } from "react";
 import cylinderImage from "@/assets/cylinder.png";
 import noodleImage from "@/assets/noodle.png";
+import Link from "next/link";
 
 const services = [
     {
@@ -175,18 +176,20 @@ export default function HizmetlerPage() {
                         Markanızı geleceğe taşıyacak çözümler için bugün bizimle iletişime geçin.
                         Modern tasarım, güçlü yazılım ve etkili dijital stratejilerle büyüyün.
                     </motion.p>
+                    <Link href="/iletisim">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/80 transition"
+                        >
+                            İletişime Geçin
+                        </motion.button>
+                    </Link>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        className="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/80 transition"
-                    >
-                        İletişime Geçin
-                    </motion.button>
                 </div>
-            </section>
+            </section >
 
             {/* Why Us Section */}
-            <section className="py-24 bg-white">
+            < section className="py-24 bg-white" >
                 <div className="container mx-auto text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -213,7 +216,7 @@ export default function HizmetlerPage() {
                         ))}
                     </div>
                 </div>
-            </section>
-        </main>
+            </section >
+        </main >
     );
 }

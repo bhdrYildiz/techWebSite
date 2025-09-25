@@ -60,17 +60,17 @@ export default function IletisimPage() {
                         <div className="flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
                             <FaPhoneAlt className="text-blue-700 text-3xl" />
                             <h3 className="text-xl font-semibold">Telefon</h3>
-                            <p className="text-gray-600">+90 530 389 7163</p>
+                            <p className="text-gray-600">+90 537 494 55 44</p>
                         </div>
                         <div className="flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
                             <FaEnvelope className="text-blue-900 text-3xl" />
                             <h3 className="text-xl font-semibold">Email</h3>
-                            <p className="text-gray-600">info@yildizhotelcappadocia.com</p>
+                            <p className="text-gray-600">info@osianatech.com</p>
                         </div>
                         <div className="flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
                             <FaMapMarkerAlt className="text-[#001E80] text-3xl" />
                             <h3 className="text-xl font-semibold">Adres</h3>
-                            <p className="text-gray-600">Göreme, Cappadocia, Türkiye</p>
+                            <p className="text-gray-600">Esenler, İstanbul</p>
                         </div>
                     </div>
                 </div>

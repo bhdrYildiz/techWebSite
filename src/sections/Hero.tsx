@@ -36,7 +36,12 @@ export const Hero = () => {
               çıkmasını sağlayın.
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">Hemen Başla</button>
+              <button
+                className="bg-black text-white px-4 py-2 rounded-lg font-medium text-sm inline-flex items-center justify-center tracking-tight
+             transition-all duration-300 hover:bg-gray-800 hover:scale-105"
+              >
+                Hemen Başla!
+              </button>
               <button className="btn btn-text gap-1">
                 <span>Hizmetlerimizi İncele</span>
                 <ArrowIcon className="h-5 w-5" />
