@@ -79,8 +79,8 @@ const TechColumn = (props: {
     >
       {[...new Array(2)].fill(0).map((_, index) => (
         <React.Fragment key={index}>
-          {technologies.map(({ text, imageSrc, name, username }) => (
-            <div className="card">
+          {props.items.map(({ text, imageSrc, name, username }, itemIndex) => (
+            <div className="card" key={`${name}-${itemIndex}`}>
               <div>{text}</div>
               <div className="flex items-center gap-2 mt-5">
                 <Image
