@@ -61,7 +61,7 @@ export const Pricing = () => {
             className="flex flex-col md:flex-row-reverse items-center gap-10"
           >
             <Image
-              src="/resimmobil.svg"
+              src="/resimMobil.svg"
               alt="SEO ve Danışmanlık"
               width={320}
               height={320}

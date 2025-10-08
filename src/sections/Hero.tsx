@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 export const Hero = () => {
   const heroRef = useRef(null);
@@ -31,21 +32,25 @@ export const Hero = () => {
               Dijital Başarıya Giden Yol
             </h1>
             <p className="text-xl text-[#010D3E] tracking-tight mt-6">
-              OsianaTech ile markanızı güçlendirin. Modern web tasarım, SEO, SaaS
+              OsianaTech ile markanızı güçlendirin. Modern web geliştirme, SEO, SaaS
               ve danışmanlık hizmetlerimizle işletmenizin dijital dünyada öne
               çıkmasını sağlayın.
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button
-                className="bg-black text-white px-4 py-2 rounded-lg font-medium text-sm inline-flex items-center justify-center tracking-tight
-             transition-all duration-300 hover:bg-gray-800 hover:scale-105"
-              >
-                Hemen Başla!
-              </button>
-              <button className="btn btn-text gap-1">
-                <span>Hizmetlerimizi İncele</span>
-                <ArrowIcon className="h-5 w-5" />
-              </button>
+              <Link href="/iletisim">
+                <button
+                  className="bg-black text-white px-4 py-2 rounded-lg font-medium text-sm inline-flex items-center justify-center tracking-tight
+               transition-all duration-300 hover:bg-gray-800 hover:scale-105"
+                >
+                  Hemen Başla!
+                </button>
+              </Link>
+              <Link href="/hizmetler">
+                <button className="btn btn-text gap-1">
+                  <span>Hizmetlerimizi İncele</span>
+                  <ArrowIcon className="h-5 w-5" />
+                </button>
+              </Link>
             </div>
           </div>
           <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative">
