@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="relative">
-      <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>
+    <html lang="en" className="relative overflow-x-hidden">
+      <body className={twMerge(dmSans.className, "antialiased bg-slate-900 overflow-x-hidden w-full max-w-full")}>
         <Header />
         {children}
         <Footer />

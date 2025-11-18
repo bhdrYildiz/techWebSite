@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Scrollbar gizle ve overflow kontrolü */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE ve Edge */
+  overflow-x: hidden; /* Yatay scroll'u kaldır */
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 @layer components {
   .btn {
     @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
@@ -16,7 +33,7 @@
   }
 
   .logo-ticker-image {
-    @apply h-8 w-auto;
+    @apply h-32 w-auto;
   }
 
   .tag {

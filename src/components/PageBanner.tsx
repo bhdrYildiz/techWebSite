@@ -12,13 +12,13 @@ export default function PageBanner({
     description: string;
 }) {
     return (
-        <section className="relative h-[400px] flex items-center justify-center text-center overflow-hidden bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#183EC2,#EAEEFE_100%)]">
+        <section className="relative h-[240px] flex items-center justify-center text-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
             {/* Sol ve Sağ Hareketli Görseller */}
             <motion.img
                 src={cylinderImage.src}
                 alt="Cylinder"
-                className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0"
-                animate={{ translateY: [-30, 30] }}
+                className="hidden md:block md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0 opacity-20 blur-sm"
+                animate={{ translateY: [-20, 10] }}
                 transition={{
                     repeat: Infinity,
                     repeatType: "mirror",
@@ -29,7 +29,7 @@ export default function PageBanner({
             <motion.img
                 src={noodleImage.src}
                 alt="Noodle"
-                className="md:absolute md:h-full md:w-auto md:max-w-none md:-right-6 lg:right-0"
+                className="hidden md:block md:absolute md:h-full md:w-auto md:max-w-none md:-right-6 lg:right-0 opacity-20 blur-sm"
                 animate={{ translateY: [-30, 30] }}
                 transition={{
                     repeat: Infinity,
@@ -46,10 +46,10 @@ export default function PageBanner({
                 transition={{ duration: 0.6 }}
                 className="relative z-10 text-white px-4"
             >
-                <h1 className="text-5xl md:text-5xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mb-12">
+                <h1 className="text-5xl md:text-5xl font-bold tracking-tighter bg-gradient-to-b from-white via-gray-200 to-gray-400 text-transparent bg-clip-text mb-12">
                     {title}
                 </h1>
-                <p className="text-xl text-[#010D3E] tracking-tight mt-6 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-300 tracking-tight mt-6 max-w-2xl mx-auto">
                     {description}
                 </p>
             </motion.div>
