@@ -3,7 +3,7 @@ import ArrowIcon from "@/assets/arrow-right.svg";
 import {
   motion,
 } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
@@ -164,27 +164,41 @@ export const Hero = () => {
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
   // Pathname değiştiğinde (anasayfadan çıkarken) ScrollTrigger'ı temizle
-  useEffect(() => {
+  // useLayoutEffect kullanarak React'ın render cycle'ından ÖNCE temizle
+  useLayoutEffect(() => {
+    // Pathname değiştiğinde veya anasayfadan çıkıldığında hemen temizle
     if (pathname !== '/') {
-      // Anasayfadan çıkıldı, ScrollTrigger'ı temizle
+      // Önce ScrollTrigger'ı disable et ve kill et
       if (scrollTriggerRef.current) {
         try {
-          scrollTriggerRef.current.disable();
-          scrollTriggerRef.current.kill();
+          const trigger = scrollTriggerRef.current;
+          // Pin'i kaldırmak için önce disable et
+          try {
+            trigger.disable();
+          } catch (e) {
+            // Silent fail
+          }
+          try {
+            trigger.kill();
+          } catch (e) {
+            // Silent fail
+          }
           scrollTriggerRef.current = null;
         } catch (e) {
           // Silent fail
         }
       }
+      
+      // Sonra timeline'ı temizle
       if (timelineRef.current) {
         try {
-          timelineRef.current.clear();
           timelineRef.current.kill();
           timelineRef.current = null;
         } catch (e) {
           // Silent fail
         }
       }
+
     }
   }, [pathname]);
 
@@ -192,19 +206,35 @@ export const Hero = () => {
     if (!heroRef.current || !leftContentRef.current || !rightOrbsRef.current || !formRef.current) return;
     if (pathname !== '/') return; // Sadece anasayfada çalış
 
+    // Önce mevcut ScrollTrigger'ları temizle
+    if (timelineRef.current) {
+      try {
+        timelineRef.current.kill();
+      } catch (e) {
+        // Silent fail
+      }
+      timelineRef.current = null;
+    }
+    if (scrollTriggerRef.current) {
+      try {
+        scrollTriggerRef.current.kill();
+      } catch (e) {
+        // Silent fail
+      }
+      scrollTriggerRef.current = null;
+    }
+
     let isMounted = true;
 
     // Timeline oluştur - scroll ile tetiklenecek
-    // Timeline toplam süresi: 1.5s (form) + 0.5s (bekleme) = 2s
+    // Pin özelliğini kaldırdık çünkü React ile uyumsuz - scroll animasyonu olarak devam ediyor
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top", // Hero section üstte olduğunda başla
-        end: "+=200vh", // 2 ekran yüksekliği scroll - animasyon tamamen bitene kadar pin yap
+        end: "+=200vh", // 2 ekran yüksekliği scroll
         scrub: 1, // Smooth scrubbing - scroll ile senkronize
-        pin: true, // Hero section'ı sabit tut
-        pinSpacing: true, // Pin spacing ekle
-        anticipatePin: 1, // Pin'i önceden hesapla
+        // pin: true kaldırıldı - React ile uyumsuz
         invalidateOnRefresh: true, // Refresh'te yeniden hesapla
         markers: false, // Debug için false (true yaparsan görebilirsin)
       },
@@ -257,21 +287,31 @@ export const Hero = () => {
     return () => {
       isMounted = false;
 
-      // Önce ScrollTrigger'ı disable et
+      // Önce ScrollTrigger'ı temizle - pin'i kaldırmak için
       if (scrollTriggerRef.current) {
         try {
-          scrollTriggerRef.current.disable();
-          scrollTriggerRef.current.kill();
+          const trigger = scrollTriggerRef.current;
+          // Pin'i kaldırmak için önce disable et
+          try {
+            trigger.disable();
+          } catch (e) {
+            // Silent fail
+          }
+          // Sonra kill et
+          try {
+            trigger.kill();
+          } catch (e) {
+            // Silent fail
+          }
           scrollTriggerRef.current = null;
         } catch (e) {
           // Silent fail
         }
       }
 
-      // Timeline'ı temizle
+      // Sonra timeline'ı temizle
       if (timelineRef.current) {
         try {
-          timelineRef.current.clear();
           timelineRef.current.kill();
           timelineRef.current = null;
         } catch (e) {
@@ -279,43 +319,6 @@ export const Hero = () => {
         }
       }
 
-      // Tüm ScrollTrigger'ları temizle - önce disable sonra kill
-      try {
-        const allTriggers = ScrollTrigger.getAll();
-        allTriggers.forEach((trigger) => {
-          try {
-            trigger.disable();
-            trigger.kill();
-          } catch (e) {
-            // Silent fail
-          }
-        });
-      } catch (e) {
-        // Silent fail
-      }
-
-      // Pin'i manuel olarak kaldır
-      try {
-        const heroElement = heroRef.current;
-        if (heroElement) {
-          const element = heroElement as HTMLElement;
-          if (element.style.position === 'fixed' || element.style.position === 'absolute') {
-            element.style.position = '';
-            element.style.top = '';
-            element.style.left = '';
-            element.style.width = '';
-          }
-        }
-      } catch (e) {
-        // Silent fail
-      }
-
-      // ScrollTrigger'ı refresh et
-      try {
-        ScrollTrigger.refresh();
-      } catch (e) {
-        // Silent fail
-      }
     };
   }, [pathname]);
 
